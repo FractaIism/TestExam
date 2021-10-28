@@ -1,0 +1,44 @@
+class Vehicle {
+    constructor(name) {
+        this.name = name;
+        this.speed = 0;
+        this.angle = 0;
+    }
+    move(speed) {
+        this.speed = speed;
+        alert(`${this.name} moves at speed ${speed}!`;
+    }
+    turn(angle) {
+        this.angle += angle;
+        alert(`${this.name} turns ${speed}deg counterclockwise!`;
+    }
+    countWheels() {
+        alert(`${this.name} has ${this.wheels} wheels!`;
+    }
+}
+
+class Car extends Vehicle {
+    constructor(...args) {
+        super(...args);
+        this.wheels = 4;
+    }
+    openDoor() {
+        alert(`${this.name} opens its doors!`;
+    }
+}
+
+class Motorcycle extends Vehicle {
+    constructor(...args) {
+        super(...args);
+        this.wheels = 2;
+    }
+    makeNoise() {
+        alert(`${this.name} goes VROOM!`;
+    }
+}
+
+
+
+如上所示，Car和Motorcycle類皆繼承自父類Vehicle，因此皆擁有其方法move, turn, countWheels及屬性name, speed, angle。
+但是繼承後子類可另外定義自己特有的方法和屬性，如Car之wheels屬性定為4，而Motorcycle則為2。
+此外，Car和Motorcycle分別擁有彼此不共享的方法openDoor及makeNoise。
